@@ -1,0 +1,214 @@
+.landing {
+  position: relative;
+  isolation: isolate;
+  min-height: 100svh;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 50% 95%, rgba(109, 40, 217, 0.42), transparent 34%),
+    linear-gradient(180deg, #050309 0%, #05040a 48%, #090015 100%);
+}
+
+.texture,
+.aurora {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+}
+
+.texture {
+  z-index: -1;
+  opacity: 0.28;
+  background-image:
+    radial-gradient(rgba(255, 255, 255, 0.22) 0.7px, transparent 0.8px),
+    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 4px 4px, 100% 10px;
+  mix-blend-mode: screen;
+}
+
+.aurora {
+  z-index: -2;
+  background:
+    radial-gradient(ellipse at 48% 52%, rgba(168, 85, 247, 0.34), transparent 28%),
+    radial-gradient(ellipse at 50% 100%, rgba(59, 7, 100, 0.92), transparent 42%);
+  filter: blur(8px);
+  animation: aurora-breathe 7s ease-in-out infinite;
+}
+
+.hero-only {
+  position: relative;
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  padding: 36px 20px;
+  text-align: center;
+}
+
+.host-pill {
+  position: absolute;
+  top: clamp(22px, 4vw, 38px);
+  left: clamp(20px, 4vw, 48px);
+  z-index: 5;
+  width: clamp(118px, 11vw, 162px);
+  height: clamp(58px, 5.6vw, 82px);
+  overflow: hidden;
+}
+
+.host-pill img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: drop-shadow(0 0 18px rgba(255, 255, 255, 0.18));
+}
+
+.mu-field {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.mu-field span {
+  position: absolute;
+  display: block;
+  top: 47%;
+  left: 50%;
+  color: rgba(196, 181, 253, 0.095);
+  font-size: clamp(18rem, 42vw, 44rem);
+  line-height: 1;
+  font-weight: 900;
+  text-shadow:
+    0 0 18px rgba(168, 85, 247, 0.18),
+    0 0 48px rgba(217, 70, 239, 0.1);
+  mix-blend-mode: screen;
+  animation: mu-drift 18s ease-in-out infinite;
+}
+
+.main-title {
+  position: relative;
+  z-index: 4;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: clamp(0.02em, 0.8vw, 0.1em);
+  margin: 0;
+  color: #fff8ff;
+  width: min(100%, 1280px);
+  font-size: clamp(4.2rem, 14vw, 14.5rem);
+  line-height: 0.8;
+  font-weight: 900;
+  letter-spacing: 0;
+  text-shadow:
+    0 0 12px rgba(255, 255, 255, 0.42),
+    0 0 42px rgba(168, 85, 247, 0.48),
+    0 20px 70px rgba(0, 0, 0, 0.72);
+}
+
+.title-word {
+  display: inline-block;
+  line-height: 0.8;
+}
+
+.title-mu {
+  display: inline-block;
+  font-size: 0.82em;
+  line-height: 0.74;
+  margin-left: -0.02em;
+  transform: translateY(-0.095em);
+}
+
+.sub-title {
+  position: relative;
+  z-index: 5;
+  margin: clamp(18px, 2.2vw, 30px) auto 0;
+  color: rgba(255, 255, 255, 0.86);
+  font-size: clamp(1.3rem, 3.5vw, 4rem);
+  line-height: 1;
+  font-weight: 900;
+  letter-spacing: clamp(0.36em, 1.5vw, 0.68em);
+  text-indent: clamp(0.36em, 1.5vw, 0.68em);
+  text-transform: uppercase;
+  text-shadow: 0 0 24px rgba(168, 85, 247, 0.68);
+}
+
+.scroll-cue {
+  position: relative;
+  z-index: 5;
+  display: grid;
+  justify-items: center;
+  gap: 18px;
+  margin-top: clamp(34px, 6vh, 72px);
+  color: rgba(255, 255, 255, 0.74);
+  font-size: clamp(0.72rem, 1vw, 0.9rem);
+  font-weight: 900;
+  letter-spacing: 0.5em;
+  text-indent: 0.5em;
+  text-transform: uppercase;
+}
+
+.scroll-cue i {
+  width: 1px;
+  height: 74px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.7), transparent);
+  animation: scroll-line 1.8s ease-in-out infinite;
+}
+
+@keyframes aurora-breathe {
+  0%, 100% { opacity: 0.8; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.04); }
+}
+
+@keyframes mu-drift {
+  0%, 100% {
+    transform: translate3d(-50%, -50%, 0) rotate(-4deg) scale(1);
+    opacity: 0.34;
+  }
+  50% {
+    transform: translate3d(-50%, -53%, 0) rotate(4deg) scale(1.03);
+    opacity: 0.52;
+  }
+}
+
+@keyframes scroll-line {
+  0%, 100% { transform: scaleY(0.62); opacity: 0.45; }
+  50% { transform: scaleY(1); opacity: 1; }
+}
+
+@media (max-width: 780px) {
+  .host-pill {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .sub-title {
+    letter-spacing: 0.38em;
+    text-indent: 0.38em;
+  }
+}
+
+@media (max-width: 460px) {
+  .host-pill img {
+    width: 100%;
+  }
+
+  .main-title {
+    gap: 0.02em;
+    font-size: clamp(3.5rem, 18vw, 5.6rem);
+  }
+
+  .sub-title,
+  .scroll-cue {
+    letter-spacing: 0.22em;
+    text-indent: 0.22em;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 1ms !important;
+  }
+}
