@@ -1,10 +1,13 @@
 import React from 'react';
 import './App.css';
+import Guidelines from "./components/Guidelines";
+
 import About from "./sections/About";
 
 function App() {
   return (
-    <main className="landing" aria-label="Makeμ hackathon landing page">
+    
+      <main className="landing" aria-label="Makeμ hackathon landing page">
       <div className="texture" aria-hidden="true" />
       <div className="aurora" aria-hidden="true" />
 
@@ -29,9 +32,11 @@ function App() {
         </div>
       </section>
 
+      <Guidelines/>
       <About/>
 
     </main>
+    
   );
 }
 
