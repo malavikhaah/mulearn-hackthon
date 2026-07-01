@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import Guidelines from "./components/Guidelines";
 
+import About from "./sections/About";
 
 function App() {
   return (
@@ -32,6 +33,8 @@ function App() {
       </section>
 
       <Guidelines/>
+      <About/>
+
     </main>
     
   );
