@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import About from "./sections/About";
 
 function App() {
   return (
@@ -27,6 +28,9 @@ function App() {
           <i />
         </div>
       </section>
+
+      <About/>
+
     </main>
   );
 }
