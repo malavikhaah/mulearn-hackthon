@@ -85,8 +85,6 @@ function App() {
           </div>
         </div>
 
-        {/* Large bg text */}
-        <div className="bg-forge-text" aria-hidden="true">FORGE</div>
       </section>
 
       <Timeline />

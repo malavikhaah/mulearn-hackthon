@@ -15,7 +15,7 @@
 /* ---- Fade-in Animation Classes ---- */
 .fade-in-section {
   opacity: 0;
-  transform: translateY(40px);
+  transform: translateY(30px);
   transition: opacity 1.2s cubic-bezier(0.215, 0.61, 0.355, 1), 
               transform 1.2s cubic-bezier(0.215, 0.61, 0.355, 1);
   will-change: opacity, transform;
@@ -163,24 +163,6 @@
   overflow: hidden;
 }
 
-/* Giant background FORGE text */
-.bg-forge-text {
-  position: absolute;
-  bottom: -5%;
-  left: 50%;
-  transform: translateX(-50%);
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: clamp(6rem, 25vw, 28rem);
-  font-weight: 700;
-  color: transparent;
-  -webkit-text-stroke: 1px rgba(0, 229, 255, 0.05);
-  letter-spacing: -0.04em;
-  pointer-events: none;
-  white-space: nowrap;
-  z-index: 0;
-  user-select: none;
-}
-
 .hero-content {
   position: relative;
   z-index: 2;
@@ -200,7 +182,7 @@
   font-size: clamp(0.6rem, 1.2vw, 0.8rem);
   color: rgba(0, 229, 255, 0.7);
   letter-spacing: 0.25em;
-  text-transform: none !important;
+  text-transform: none !important; 
 }
 
 .eyebrow-dot {
