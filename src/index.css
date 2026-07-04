@@ -1,17 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
 
 :root {
-  --bg: #030106;
-  --panel: rgba(16, 9, 27, 0.72);
-  --panel-strong: rgba(25, 13, 44, 0.9);
-  --line: rgba(255, 255, 255, 0.14);
-  --line-purple: rgba(183, 82, 255, 0.42);
-  --purple: #9d4edd;
-  --purple-hot: #d946ef;
-  --purple-soft: #c4b5fd;
-  --white: #ffffff;
-  --muted: #b8adc8;
-  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --bg: #080b0f;
+  --bg2: #0d1117;
+  --panel: rgba(13, 17, 23, 0.85);
+  --cyan: #00e5ff;
+  --cyan-dim: rgba(0, 229, 255, 0.15);
+  --amber: #ffab00;
+  --amber-dim: rgba(255, 171, 0, 0.12);
+  --white: #f0f4f8;
+  --muted: #6b7a8d;
+  --border: rgba(0, 229, 255, 0.12);
+  --border-strong: rgba(0, 229, 255, 0.35);
+  font-family: 'Space Grotesk', system-ui, sans-serif;
   color: var(--white);
   background: var(--bg);
 }
@@ -34,14 +35,12 @@ body {
   overflow-x: hidden;
 }
 
-
 a {
   color: inherit;
   text-decoration: none;
 }
 
-button,
-a {
+button, a {
   -webkit-tap-highlight-color: transparent;
 }
 
@@ -55,6 +54,6 @@ img {
 }
 
 ::selection {
-  background: rgba(217, 70, 239, 0.45);
+  background: rgba(0, 229, 255, 0.3);
   color: var(--white);
 }

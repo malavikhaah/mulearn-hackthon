@@ -1,0 +1,249 @@
+/* =============================================
+   TIMELINE.CSS — FORGE DESIGN
+   ============================================= */
+
+.tl-section {
+  position: relative;
+  z-index: 2;
+  padding: 100px clamp(24px, 6vw, 80px);
+  display: flex;
+  justify-content: center;
+}
+
+.tl-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  width: min(100%, 820px);
+  text-align: center;
+}
+
+/* ---- Section tag ---- */
+.tl-tag {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.tl-tag-line {
+  display: block;
+  width: 32px;
+  height: 1px;
+  background: #00e5ff;
+  opacity: 0.5;
+}
+
+.tl-tag-text {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: rgba(0, 229, 255, 0.6);
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+}
+
+/* ---- Date block ---- */
+.tl-date-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  margin: -12px 0;
+}
+
+.tl-date {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(4rem, 11vw, 9rem);
+  font-weight: 700;
+  color: #f0f4f8;
+  margin: 0;
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+}
+
+.tl-date-accent {
+  color: #00e5ff;
+  text-shadow: 0 0 30px rgba(0, 229, 255, 0.5);
+}
+
+.tl-year {
+  font-family: 'Space Mono', monospace;
+  font-size: clamp(0.8rem, 1.5vw, 1.1rem);
+  font-weight: 400;
+  color: rgba(240, 244, 248, 0.25);
+  letter-spacing: 0.5em;
+  text-indent: 0.5em;
+  margin: 0;
+  margin-top: 6px;
+}
+
+/* ---- Quote ---- */
+.tl-quote {
+  font-family: 'Space Mono', monospace;
+  font-size: clamp(0.6rem, 1vw, 0.75rem);
+  color: rgba(240, 244, 248, 0.3);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin: -16px 0 0 0;
+  max-width: 520px;
+}
+
+/* ---- Countdown ---- */
+.tl-countdown {
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+.tl-count-cell {
+  display: flex;
+  align-items: center;
+}
+
+.tl-colon {
+  font-family: 'Space Mono', monospace;
+  font-size: clamp(1.5rem, 4vw, 3rem);
+  color: rgba(0, 229, 255, 0.25);
+  line-height: 1;
+  padding: 0 4px;
+  margin-bottom: 20px;
+}
+
+.tl-count-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: clamp(12px, 2.5vw, 20px) clamp(14px, 3vw, 28px);
+}
+
+.tl-count-value {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(2.2rem, 6vw, 4.5rem);
+  font-weight: 700;
+  color: #f0f4f8;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  display: block;
+  position: relative;
+}
+
+.tl-count-value::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(0, 229, 255, 0.4), transparent);
+}
+
+.tl-count-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.55rem;
+  font-weight: 700;
+  color: rgba(240, 244, 248, 0.3);
+  letter-spacing: 0.35em;
+  text-indent: 0.35em;
+  text-transform: uppercase;
+  display: block;
+}
+
+/* ---- CTA Button ---- */
+.tl-cta {
+  position: relative;
+  display: inline-flex;
+  text-decoration: none;
+  overflow: hidden;
+  margin-top: -10px;
+}
+
+.tl-cta-inner {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 40px;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #00e5ff;
+  border: 1px solid #00e5ff;
+  transition: color 0.3s ease;
+}
+
+.tl-cta-bg {
+  position: absolute;
+  inset: 0;
+  background: #00e5ff;
+  transform: translateY(105%);
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  z-index: 1;
+}
+
+.tl-cta:hover .tl-cta-bg {
+  transform: translateY(0);
+}
+
+.tl-cta:hover .tl-cta-inner {
+  color: #080b0f;
+}
+
+/* ---- Location ---- */
+.tl-location {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(0, 229, 255, 0.08);
+  width: 100%;
+}
+
+.tl-location-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.6rem;
+  font-weight: 700;
+  color: #ffab00;
+  letter-spacing: 0.45em;
+  text-indent: 0.45em;
+  text-transform: uppercase;
+}
+
+.tl-location-name {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(0.75rem, 1.5vw, 1rem);
+  font-weight: 600;
+  color: rgba(240, 244, 248, 0.55);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+
+.tl-location-name:hover {
+  color: #ffab00;
+}
+
+.tl-loc-icon {
+  color: #ffab00;
+  flex-shrink: 0;
+  transition: transform 0.25s ease;
+}
+
+.tl-location-name:hover .tl-loc-icon {
+  transform: translateY(-2px) scale(1.1);
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 480px) {
+  .tl-colon { padding: 0 2px; }
+  .tl-count-box { padding: 10px 10px; }
+}
