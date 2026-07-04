@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./Timeline.css";
 
 export default function Timeline() {
   const targetDate = new Date("August 8, 2026 15:00:00").getTime();
+  const sectionRef = useRef(null);
 
   const [timeLeft, setTimeLeft] = useState({
     days: "00",
@@ -37,8 +38,32 @@ export default function Timeline() {
     return () => clearInterval(interval);
   }, [targetDate]);
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section className="tl-section" aria-label="Event countdown and details">
+    <section 
+      className="tl-section fade-in-section" 
+      aria-label="Event countdown and details"
+      ref={sectionRef}
+    >
       <div className="tl-inner">
 
         {/* Section tag */}

@@ -1,6 +1,6 @@
 /* =============================================
    APP.CSS — FORGE DESIGN SYSTEM
-   Original design for Makeμ Hackathon
+   Original design for MAKEµ Hackathon
    ============================================= */
 
 /* ---- Base Layout ---- */
@@ -10,6 +10,20 @@
   min-height: 100svh;
   background: #080b0f;
   overflow-x: hidden;
+}
+
+/* ---- Fade-in Animation Classes ---- */
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1.2s cubic-bezier(0.215, 0.61, 0.355, 1), 
+              transform 1.2s cubic-bezier(0.215, 0.61, 0.355, 1);
+  will-change: opacity, transform;
+}
+
+.fade-in-section.is-visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* ---- Hex Grid Background Overlay ---- */
@@ -30,8 +44,8 @@
   position: fixed;
   pointer-events: none;
   z-index: 1;
-  width: 180px;
-  height: 180px;
+  width: clamp(100px, 15vw, 180px);
+  height: clamp(100px, 15vw, 180px);
 }
 
 .corner-accent.top-left {
@@ -78,8 +92,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 16px clamp(24px, 5vw, 64px);
-  background: rgba(8, 11, 15, 0.7);
+  padding: 12px clamp(16px, 5vw, 64px);
+  background: rgba(8, 11, 15, 0.75);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid rgba(0, 229, 255, 0.08);
@@ -91,7 +105,7 @@
 }
 
 .nav-logo-img {
-  height: clamp(36px, 5vw, 52px);
+  height: clamp(32px, 5vw, 52px);
   width: auto;
   object-fit: contain;
   filter: brightness(1.1);
@@ -101,12 +115,12 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 10px 24px;
+  padding: clamp(8px, 1.5vw, 10px) clamp(16px, 3vw, 24px);
   background: transparent;
   border: 1px solid #00e5ff;
   color: #00e5ff;
   font-family: 'Space Mono', monospace;
-  font-size: 0.8rem;
+  font-size: clamp(0.7rem, 1.2vw, 0.8rem);
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -115,6 +129,7 @@
   position: relative;
   overflow: hidden;
   text-decoration: none;
+  white-space: nowrap;
 }
 
 .nav-register-btn::before {
@@ -143,7 +158,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 100px clamp(24px, 6vw, 80px) 60px;
+  padding: clamp(80px, 15vh, 120px) clamp(16px, 6vw, 80px) 60px;
   text-align: center;
   overflow: hidden;
 }
@@ -155,7 +170,7 @@
   left: 50%;
   transform: translateX(-50%);
   font-family: 'Space Grotesk', sans-serif;
-  font-size: clamp(8rem, 25vw, 28rem);
+  font-size: clamp(6rem, 25vw, 28rem);
   font-weight: 700;
   color: transparent;
   -webkit-text-stroke: 1px rgba(0, 229, 255, 0.05);
@@ -172,7 +187,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 16px;
+  gap: clamp(12px, 3vw, 24px);
+  width: 100%;
+  max-width: 1400px;
 }
 
 .hero-eyebrow {
@@ -180,10 +197,10 @@
   align-items: center;
   gap: 10px;
   font-family: 'Space Mono', monospace;
-  font-size: clamp(0.65rem, 1.2vw, 0.8rem);
+  font-size: clamp(0.6rem, 1.2vw, 0.8rem);
   color: rgba(0, 229, 255, 0.7);
   letter-spacing: 0.25em;
-  text-transform: uppercase;
+  text-transform: none !important;
 }
 
 .eyebrow-dot {
@@ -205,12 +222,14 @@
   line-height: 0.85;
   display: flex;
   align-items: flex-start;
+  justify-content: center;
   gap: 0.02em;
   font-family: 'Space Grotesk', sans-serif;
   font-weight: 700;
-  font-size: clamp(5rem, 16vw, 16rem);
+  font-size: clamp(3.5rem, 16vw, 16rem);
   color: #f0f4f8;
   letter-spacing: -0.04em;
+  width: 100%;
 }
 
 .title-mu {
@@ -225,10 +244,10 @@
 .hero-subtitle {
   margin: 0;
   font-family: 'Space Mono', monospace;
-  font-size: clamp(0.9rem, 2.5vw, 1.6rem);
+  font-size: clamp(0.8rem, 2.5vw, 1.6rem);
   font-weight: 400;
-  letter-spacing: clamp(0.5em, 2vw, 1em);
-  text-indent: clamp(0.5em, 2vw, 1em);
+  letter-spacing: clamp(0.3em, 2vw, 1em);
+  text-indent: clamp(0.3em, 2vw, 1em);
   color: rgba(240, 244, 248, 0.5);
   text-transform: uppercase;
 }
@@ -236,7 +255,7 @@
 .hero-meta {
   display: flex;
   align-items: center;
-  gap: 18px;
+  gap: clamp(12px, 2vw, 24px);
   margin-top: 12px;
   flex-wrap: wrap;
   justify-content: center;
@@ -244,7 +263,7 @@
 
 .hero-meta-item {
   font-family: 'Space Mono', monospace;
-  font-size: clamp(0.65rem, 1.1vw, 0.8rem);
+  font-size: clamp(0.6rem, 1.1vw, 0.8rem);
   color: rgba(240, 244, 248, 0.45);
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -263,7 +282,7 @@
 /* ---- Scroll indicator ---- */
 .scroll-indicator {
   position: absolute;
-  bottom: 36px;
+  bottom: clamp(20px, 5vh, 40px);
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -275,7 +294,7 @@
 
 .scroll-text {
   font-family: 'Space Mono', monospace;
-  font-size: 0.55rem;
+  font-size: 0.5rem;
   letter-spacing: 0.4em;
   color: rgba(240, 244, 248, 0.25);
   text-indent: 0.4em;
@@ -283,7 +302,7 @@
 
 .scroll-bar {
   width: 1px;
-  height: 60px;
+  height: clamp(30px, 8vh, 60px);
   background: rgba(240, 244, 248, 0.1);
   position: relative;
   overflow: hidden;
@@ -294,7 +313,7 @@
   top: 0;
   left: 0;
   right: 0;
-  height: 30px;
+  height: 50%;
   background: linear-gradient(180deg, #00e5ff, transparent);
   animation: scroll-fill 2s ease-in-out infinite;
 }
@@ -310,16 +329,16 @@
   position: relative;
   z-index: 2;
   border-top: 1px solid rgba(0, 229, 255, 0.08);
-  padding: 32px clamp(24px, 6vw, 80px);
+  padding: 40px clamp(16px, 6vw, 80px);
 }
 
 .footer-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 20px;
+  gap: 32px;
   flex-wrap: wrap;
-  max-width: 1100px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
@@ -330,7 +349,7 @@
 }
 
 .footer-logo {
-  height: 36px;
+  height: clamp(28px, 4vw, 36px);
   width: auto;
   object-fit: contain;
   opacity: 0.7;
@@ -356,16 +375,36 @@
   color: rgba(240, 244, 248, 0.2);
   margin: 0;
   letter-spacing: 0.05em;
+  text-transform: none !important;
 }
 
 /* ---- Responsive ---- */
-@media (max-width: 600px) {
-  .hero-title {
-    font-size: clamp(3.5rem, 22vw, 5rem);
-  }
+@media (max-width: 768px) {
   .footer-inner {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    text-align: center;
+  }
+  .footer-left {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: clamp(3rem, 20vw, 4.5rem);
+  }
+  .hero-subtitle {
+    letter-spacing: 0.3em;
+    text-indent: 0.3em;
+  }
+  .hero-meta {
+    flex-direction: column;
+    gap: 8px;
+  }
+  .meta-divider {
+    display: none;
   }
 }
 

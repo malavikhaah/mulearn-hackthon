@@ -5,7 +5,7 @@
 .tl-section {
   position: relative;
   z-index: 2;
-  padding: 100px clamp(24px, 6vw, 80px);
+  padding: clamp(60px, 12vw, 100px) clamp(16px, 6vw, 80px);
   display: flex;
   justify-content: center;
 }
@@ -14,7 +14,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 40px;
+  gap: clamp(32px, 8vw, 48px);
   width: min(100%, 820px);
   text-align: center;
 }
@@ -54,7 +54,7 @@
 
 .tl-date {
   font-family: 'Space Grotesk', sans-serif;
-  font-size: clamp(4rem, 11vw, 9rem);
+  font-size: clamp(3rem, 12vw, 9rem);
   font-weight: 700;
   color: #f0f4f8;
   margin: 0;
@@ -69,7 +69,7 @@
 
 .tl-year {
   font-family: 'Space Mono', monospace;
-  font-size: clamp(0.8rem, 1.5vw, 1.1rem);
+  font-size: clamp(0.7rem, 1.5vw, 1.1rem);
   font-weight: 400;
   color: rgba(240, 244, 248, 0.25);
   letter-spacing: 0.5em;
@@ -81,19 +81,22 @@
 /* ---- Quote ---- */
 .tl-quote {
   font-family: 'Space Mono', monospace;
-  font-size: clamp(0.6rem, 1vw, 0.75rem);
+  font-size: clamp(0.55rem, 1.2vw, 0.75rem);
   color: rgba(240, 244, 248, 0.3);
   letter-spacing: 0.2em;
   text-transform: uppercase;
   margin: -16px 0 0 0;
   max-width: 520px;
+  line-height: 1.5;
 }
 
 /* ---- Countdown ---- */
 .tl-countdown {
   display: flex;
   align-items: center;
-  gap: 0;
+  justify-content: center;
+  width: 100%;
+  flex-wrap: nowrap;
 }
 
 .tl-count-cell {
@@ -103,24 +106,24 @@
 
 .tl-colon {
   font-family: 'Space Mono', monospace;
-  font-size: clamp(1.5rem, 4vw, 3rem);
+  font-size: clamp(1rem, 4vw, 3rem);
   color: rgba(0, 229, 255, 0.25);
   line-height: 1;
-  padding: 0 4px;
-  margin-bottom: 20px;
+  padding: 0 clamp(2px, 1vw, 8px);
+  margin-bottom: clamp(10px, 3vw, 20px);
 }
 
 .tl-count-box {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
-  padding: clamp(12px, 2.5vw, 20px) clamp(14px, 3vw, 28px);
+  gap: clamp(4px, 1.5vw, 8px);
+  padding: clamp(8px, 2vw, 20px) clamp(10px, 3vw, 28px);
 }
 
 .tl-count-value {
   font-family: 'Space Grotesk', sans-serif;
-  font-size: clamp(2.2rem, 6vw, 4.5rem);
+  font-size: clamp(1.8rem, 6vw, 4.5rem);
   font-weight: 700;
   color: #f0f4f8;
   line-height: 1;
@@ -141,7 +144,7 @@
 
 .tl-count-label {
   font-family: 'Space Mono', monospace;
-  font-size: 0.55rem;
+  font-size: clamp(0.45rem, 1vw, 0.55rem);
   font-weight: 700;
   color: rgba(240, 244, 248, 0.3);
   letter-spacing: 0.35em;
@@ -156,7 +159,7 @@
   display: inline-flex;
   text-decoration: none;
   overflow: hidden;
-  margin-top: -10px;
+  margin-top: 0;
 }
 
 .tl-cta-inner {
@@ -165,9 +168,9 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 16px 40px;
+  padding: clamp(12px, 2.5vw, 16px) clamp(24px, 5vw, 40px);
   font-family: 'Space Mono', monospace;
-  font-size: 0.85rem;
+  font-size: clamp(0.75rem, 1.5vw, 0.85rem);
   font-weight: 700;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -198,8 +201,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
-  padding-top: 16px;
+  gap: 12px;
+  padding-top: 24px;
   border-top: 1px solid rgba(0, 229, 255, 0.08);
   width: 100%;
 }
@@ -217,6 +220,7 @@
 .tl-location-name {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
   font-family: 'Space Grotesk', sans-serif;
   font-size: clamp(0.75rem, 1.5vw, 1rem);
@@ -226,6 +230,7 @@
   text-transform: uppercase;
   text-decoration: none;
   transition: color 0.25s ease;
+  line-height: 1.4;
 }
 
 .tl-location-name:hover {
@@ -243,7 +248,22 @@
 }
 
 /* ---- Responsive ---- */
-@media (max-width: 480px) {
-  .tl-colon { padding: 0 2px; }
-  .tl-count-box { padding: 10px 10px; }
+@media (max-width: 600px) {
+  .tl-countdown {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .tl-colon {
+    display: none;
+  }
+  .tl-count-box {
+    width: 50%;
+    padding: 16px 10px;
+  }
+}
+
+@media (max-width: 380px) {
+  .tl-count-box {
+    width: 100%;
+  }
 }
