@@ -37,7 +37,7 @@ function About() {
               className="ab-card-btn" 
               aria-label="View event brochure"
             >
-              VIEW BROCHURE
+              DOWNLOAD BROCHURE
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
                 <path d="M7 1V10M7 10L3 6.5M7 10L11 6.5M2 13H12" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
