@@ -3,10 +3,12 @@ import './App.css';
 import Guidelines from "./components/Guidelines";
 import Timeline from "./components/Timeline";
 import About from "./sections/About";
+import Sponsors from "./sections/Sponsors";
 import BackgroundParticles from "./components/BackgroundParticles";
 
 function App() {
   const heroRef = useRef(null);
+  const contactRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,6 +20,26 @@ function App() {
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const section = contactRef.current;
+    if (!section) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+    );
+
+    observer.observe(section);
+    return () => observer.disconnect();
   }, []);
 
   return (
@@ -90,6 +112,81 @@ function App() {
       <Timeline />
       <About />
       <Guidelines />
+      <Sponsors />
+
+      <section className="contact-section fade-in-section" ref={contactRef} aria-label="Contact information">
+        <div className="contact-shell">
+          <div className="contact-grid">
+            <div className="contact-content">
+              <div className="contact-badge">CONTACT • MAKEµ 2026</div>
+              <div className="contact-eyebrow" aria-hidden="true">
+                <span className="contact-dot" />
+                <span>GET IN TOUCH</span>
+              </div>
+              <h2 className="contact-title">Have questions about MAKEµ 2026?</h2>
+              <p className="contact-text">
+                Interested in participating, partnering, sponsoring, or mentoring? We’d love to hear from you.
+                Whether you’re a student or alumnus, feel free to reach out. Our team is here to help and explore opportunities to collaborate.
+              </p>
+              <div className="social-links" aria-label="Social media links">
+                <a
+                  href="https://www.linkedin.com/company/mulearn-geci/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="social-link"
+                >
+                  LinkedIn / µLearn-GECI
+                </a>
+                <a
+                  href="https://www.instagram.com/mulearn.geci/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="social-link"
+                >
+                  Instagram / mulearn.geci
+                </a>
+              </div>
+            </div>
+
+            <div className="contact-card" aria-label="Contact details">
+              <div className="contact-card-top" aria-hidden="true" />
+              <div className="contact-card-title">REACH US</div>
+
+              <div className="contact-item">
+                <div className="contact-item-head">
+                  <span className="contact-icon" aria-hidden="true">V</span>
+                  <span className="contact-label">Venue</span>
+                </div>
+                <p className="contact-value">
+                  Government Engineering College Idukki
+                  <br />
+                  Painavu, Idukki, Kerala – 685603
+                </p>
+              </div>
+
+              <div className="contact-item">
+                <div className="contact-item-head">
+                  <span className="contact-icon" aria-hidden="true">E</span>
+                  <span className="contact-label">Email</span>
+                </div>
+                <a href="mailto:mulearn@gecidukki.ac.in" className="contact-value contact-link">
+                  mulearn@gecidukki.ac.in
+                </a>
+              </div>
+
+              <div className="contact-item">
+                <div className="contact-item-head">
+                  <span className="contact-icon" aria-hidden="true">P</span>
+                  <span className="contact-label">Phone</span>
+                </div>
+                <a href="tel:+916282089432" className="contact-value contact-link">
+                  +91 6282089432
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Footer */}
       <footer className="site-footer" aria-label="Site footer">

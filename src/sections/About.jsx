@@ -1,7 +1,41 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import "./About.css";
 
 function About() {
+  const cardsRef = useRef([]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const centerY = window.innerHeight / 2;
+      
+      cardsRef.current.forEach((card) => {
+        if (!card) return;
+        
+        const rect = card.getBoundingClientRect();
+        const cardCenter = rect.top + rect.height / 2;
+        
+        // Calculate normalized distance from viewport center (0 = centered, 1 = edge/beyond)
+        const distanceFromCenter = Math.abs(centerY - cardCenter);
+        const range = window.innerHeight * 0.8;
+        const normalizedDist = Math.min(distanceFromCenter / range, 1);
+        
+        // Zoom: 1.1 at center, 0.85 at range limit
+        const scale = 1.1 - (normalizedDist * 0.25);
+        // Opacity: 1 at center, 0.4 at range limit
+        const opacity = 1 - (normalizedDist * 0.6);
+        
+        card.style.transform = `scale(${scale})`;
+        card.style.opacity = `${opacity}`;
+        card.style.transition = 'transform 0.1s ease-out, opacity 0.1s ease-out';
+      });
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll(); // Initial position check
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <section className="ab-section" aria-label="About the event and community">
       <div className="ab-inner">
@@ -15,7 +49,11 @@ function About() {
         <div className="ab-grid">
 
           {/* Card 1 — About µLEARN GECI */}
-          <article className="ab-card ab-card--primary" aria-label="About µLEARN GECI">
+          <article 
+            className="ab-card ab-card--primary" 
+            aria-label="About µLEARN GECI"
+            ref={el => cardsRef.current[0] = el}
+          >
             <div className="ab-card-number" aria-hidden="true">01</div>
             <h3 className="ab-card-title">ABOUT µLEARN GECI</h3>
             <div className="ab-card-divider" aria-hidden="true" />
@@ -32,10 +70,9 @@ function About() {
             </p>
             <a 
               href="/brochure.pdf" 
-              target="_blank" 
-              rel="noopener noreferrer" 
+              download="MAKEµ_Hackathon_Brochure.pdf"
               className="ab-card-btn" 
-              aria-label="View event brochure"
+              aria-label="Download event brochure"
             >
               DOWNLOAD BROCHURE
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
@@ -45,7 +82,11 @@ function About() {
           </article>
 
           {/* Card 2 — About MAKEµ */}
-          <article className="ab-card ab-card--secondary" aria-label="About MAKEµ Hackathon">
+          <article 
+            className="ab-card ab-card--secondary" 
+            aria-label="About MAKEµ Hackathon"
+            ref={el => cardsRef.current[1] = el}
+          >
             <div className="ab-card-number" aria-hidden="true">02</div>
             <h3 className="ab-card-title">ABOUT MAKEµ</h3>
             <div className="ab-card-divider ab-card-divider--amber" aria-hidden="true" />

@@ -1,0 +1,304 @@
+/* =============================================
+   SPONSORS.CSS — CYBER-TECH ALLIANCE GRID
+   ============================================= */
+
+.sp-section {
+  position: relative;
+  z-index: 2;
+  padding: 100px clamp(24px, 8vw, 80px);
+  overflow: hidden;
+}
+
+.sp-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* Background decorative elements */
+.sp-section::before {
+  content: '';
+  position: absolute;
+  top: 20%;
+  right: -10%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(0, 229, 255, 0.05) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* ---- Header ---- */
+.sp-header {
+  text-align: center;
+  margin-bottom: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sp-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 20px;
+  background: rgba(8, 11, 15, 0.6);
+  border: 1px solid rgba(0, 229, 255, 0.2);
+  color: #00e5ff;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  margin-bottom: 24px;
+  backdrop-filter: blur(4px);
+}
+
+.sp-badge-dot {
+  width: 6px;
+  height: 6px;
+  background: #00e5ff;
+  border-radius: 50%;
+  box-shadow: 0 0 12px #00e5ff;
+}
+
+.sp-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(2.4rem, 6vw, 4rem);
+  font-weight: 700;
+  color: #f0f4f8;
+  letter-spacing: -0.03em;
+  margin: 0 0 20px;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+.sp-accent {
+  color: #ffab00;
+}
+
+.sp-description {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.1rem;
+  color: rgba(240, 244, 248, 0.5);
+  max-width: 680px;
+  line-height: 1.8;
+}
+
+/* ---- Grid ---- */
+.sp-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2px; /* For grid line effect */
+  background: rgba(0, 229, 255, 0.05); /* Grid line color */
+  border: 1px solid rgba(0, 229, 255, 0.1);
+}
+
+/* ---- Card ---- */
+.sp-card {
+  position: relative;
+  height: 220px;
+  background: #080b0f;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.4s ease;
+  cursor: default;
+}
+
+.sp-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: 
+    linear-gradient(rgba(0, 229, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 229, 255, 0.02) 1px, transparent 1px);
+  background-size: 20px 20px;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.sp-card-glow {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, var(--accent), transparent 70%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  filter: blur(60px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.sp-card:hover {
+  background: rgba(13, 17, 23, 0.9);
+}
+
+.sp-card:hover .sp-card-glow {
+  opacity: 0.15;
+}
+
+.sp-card-inner {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.sp-card:hover .sp-card-inner {
+  transform: scale(1.05);
+}
+
+.sp-logo-box {
+  width: 72px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.sp-initials {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #f0f4f8;
+  text-shadow: 0 0 20px var(--accent);
+  letter-spacing: 0.05em;
+}
+
+.sp-logo-frame {
+  position: absolute;
+  inset: -12px;
+  border: 1px solid var(--accent);
+  opacity: 0.2;
+  transition: all 0.6s ease;
+}
+
+.sp-logo-frame::before,
+.sp-logo-frame::after {
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border: 2px solid var(--accent);
+}
+
+.sp-logo-frame::before { top: -2px; left: -2px; border-right: 0; border-bottom: 0; }
+.sp-logo-frame::after { bottom: -2px; right: -2px; border-left: 0; border-top: 0; }
+
+.sp-card:hover .sp-logo-frame {
+  opacity: 1;
+  inset: -6px;
+  transform: rotate(90deg);
+}
+
+.sp-info {
+  text-align: center;
+}
+
+.sp-name {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #f0f4f8;
+  margin: 0;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.sp-role {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.65rem;
+  color: var(--accent);
+  letter-spacing: 0.2em;
+  margin-top: 8px;
+  display: block;
+  font-weight: 700;
+  opacity: 0.7;
+}
+
+/* Scanner sweep effect */
+.sp-card-border {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  transform: translateY(-100%);
+  opacity: 0;
+  z-index: 3;
+}
+
+.sp-card:hover .sp-card-border {
+  animation: sp-scan 2s linear infinite;
+  opacity: 1;
+}
+
+@keyframes sp-scan {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(220px); }
+}
+
+/* ---- Footer ---- */
+.sp-footer {
+  margin-top: 80px;
+  text-align: center;
+  padding-top: 40px;
+  position: relative;
+}
+
+.sp-footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(0, 229, 255, 0.4), transparent);
+}
+
+.sp-footer-text {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.9rem;
+  color: rgba(240, 244, 248, 0.4);
+  letter-spacing: 0.05em;
+}
+
+.sp-link {
+  color: #00e5ff;
+  text-decoration: none;
+  font-weight: 700;
+  padding: 0 4px;
+  border-bottom: 1px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.sp-link:hover {
+  color: #ffffff;
+  border-bottom-color: #ffab00;
+  text-shadow: 0 0 10px rgba(0, 229, 255, 0.5);
+}
+
+@media (max-width: 768px) {
+  .sp-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .sp-section {
+    padding: 60px 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .sp-grid {
+    grid-template-columns: 1fr;
+  }
+  .sp-title {
+    font-size: 2.2rem;
+  }
+}
