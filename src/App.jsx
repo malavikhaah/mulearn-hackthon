@@ -3,6 +3,7 @@ import './App.css';
 import Guidelines from "./components/Guidelines";
 import Timeline from "./components/Timeline";
 import About from "./sections/About";
+import PreEvents from "./sections/PreEvents";
 import Sponsors from "./sections/Sponsors";
 import BackgroundParticles from "./components/BackgroundParticles";
 
@@ -61,7 +62,7 @@ function App() {
             <img src="/mulearn-idk.png" alt="µLEARN GECI logo" className="nav-logo-img" />
           </div>
           <a
-            href="https://forms.gle/make-mu-registration"
+            href="https://forms.gle/5yZW9axdN79i9LXC7"
             target="_blank"
             rel="noopener noreferrer"
             className="nav-register-btn"
@@ -111,6 +112,7 @@ function App() {
 
       <Timeline />
       <About />
+      <PreEvents />
       <Guidelines />
       <Sponsors />
 

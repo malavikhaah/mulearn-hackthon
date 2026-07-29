@@ -2,73 +2,73 @@ import React, { useEffect, useRef } from 'react';
 import './Sponsors.css';
 
 const supporters = [
-  { name: 'NOVA TECH', role: 'TITLE PARTNER', initials: 'NT', color: '#00e5ff' },
-  { name: 'PIXEL LABS', role: 'TECH PARTNER', initials: 'PL', color: '#ffab00' },
-  { name: 'AURORA AI', role: 'AI PARTNER', initials: 'AA', color: '#00e5ff' },
-  { name: 'HORIZON CORE', role: 'COMMUNITY PARTNER', initials: 'HC', color: '#ffab00' },
-  { name: 'BYTE CRAFT', role: 'CREATIVE PARTNER', initials: 'BC', color: '#00e5ff' },
+  { name: 'MALABAR GOLD & DIAMONDS', logo: '/assets/logos/malabar-gold.png', color: '#540b33' },
+  { name: 'LUMINAR TECHNOLAB', logo: '/assets/logos/luminar-technolab.png', color: '#812990' } 
 ];
-
 export default function Sponsors() {
-  const sectionRef = useRef(null);
+  const cardsRef = useRef([]);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
+    const handleScroll = () => {
+      const centerY = window.innerHeight / 2;
+      cardsRef.current.forEach((card) => {
+        if (!card) return;
+        const rect = card.getBoundingClientRect();
+        const cardCenter = rect.top + rect.height / 2;
+        const distanceFromCenter = Math.abs(centerY - cardCenter);
+        const range = window.innerHeight * 0.8;
+        const normalizedDist = Math.min(distanceFromCenter / range, 1);
 
-    if (sectionRef.current) observer.observe(sectionRef.current);
-    return () => observer.disconnect();
+        const scale = 1.02 - (normalizedDist * 0.02);
+        const opacity = 1 - (normalizedDist * 0.45);
+
+        card.style.transform = `scale(${scale})`;
+        card.style.opacity = `${opacity}`;
+      });
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
-    <section className="sp-section" aria-label="Sponsors and partners" ref={sectionRef}>
+    <section className="sp-section" id="sponsors">
       <div className="sp-container">
-        
-        <div className="sp-header">
-          <div className="sp-badge">
-            <span className="sp-badge-dot"></span>
-            NETWORK • ALLIANCE
-          </div>
-          <h2 className="sp-title">BACKED BY BOLD <span className="sp-accent">COLLABORATORS</span></h2>
-          <p className="sp-description">
-            These are placeholder supporters for the event page. Swap them with real partners once the sponsorship lineup is finalized.
-          </p>
-        </div>
+        <div className="sp-badge">04 / STRATEGIC_ALLIANCE</div>
+
+        <header className="sp-header">
+          <h2 className="sp-title">POWERED BY <span className="sp-accent">INDUSTRY_LEADERS</span></h2>
+          <p className="sp-description">We collaborate with leading companies and innovators to power the next wave of products and experiences.</p>
+        </header>
 
         <div className="sp-grid">
-          {supporters.map((item, idx) => (
-            <div 
-              className="sp-card" 
-              key={item.name}
-              style={{ '--accent': item.color, '--delay': `${idx * 0.1}s` }}
+          {supporters.map((s, i) => (
+            <article
+              key={s.name}
+              className="sp-card"
+              ref={el => cardsRef.current[i] = el}
+              style={{ ['--accent']: s.color }}
+              aria-label={`${s.name} - ${s.role}`}
             >
-              <div className="sp-card-glow"></div>
+              <div className="sp-card-glow" aria-hidden="true" />
+              <div className="sp-card-border" aria-hidden="true" />
+
               <div className="sp-card-inner">
                 <div className="sp-logo-box">
-                  <span className="sp-initials">{item.initials}</span>
-                  <div className="sp-logo-frame"></div>
+                  <div className="sp-logo-frame" />
+                  <img className="sp-logo" src={s.logo} alt={`${s.name} logo`} />
                 </div>
+
                 <div className="sp-info">
-                  <h3 className="sp-name">{item.name}</h3>
-                  <span className="sp-role">{item.role}</span>
+                  <h3 className="sp-name">{s.name}</h3>
+                  <span className="sp-role">{s.role}</span>
                 </div>
               </div>
-              <div className="sp-card-border"></div>
-            </div>
+            </article>
           ))}
         </div>
 
-        <div className="sp-footer">
-          <p className="sp-footer-text">Interested in partnering? <a href="mailto:mulearn@gecidukki.ac.in" className="sp-link">Contact our team</a></p>
-        </div>
 
       </div>
     </section>

@@ -95,7 +95,7 @@
 /* ---- Card ---- */
 .sp-card {
   position: relative;
-  height: 220px;
+  height: 280px;
   background: #080b0f;
   overflow: hidden;
   display: flex;
@@ -153,21 +153,21 @@
 }
 
 .sp-logo-box {
-  width: 72px;
-  height: 72px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-}
-
-.sp-initials {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: #f0f4f8;
-  text-shadow: 0 0 20px var(--accent);
-  letter-spacing: 0.05em;
+   width: 140px;
+   height: 140px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   position: relative;
+ }
+ 
+ .sp-logo {
+   width: 128px;
+   height: 128px;
+   object-fit: contain;
+   border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(2,6,23,0.6);
+  background: rgba(255,255,255,0.03);
 }
 
 .sp-logo-frame {
@@ -241,7 +241,7 @@
 
 @keyframes sp-scan {
   0% { transform: translateY(0); }
-  100% { transform: translateY(220px); }
+  100% { transform: translateY(280px); }
 }
 
 /* ---- Footer ---- */
@@ -271,14 +271,24 @@
 }
 
 .sp-link {
-  color: #00e5ff;
-  text-decoration: none;
+  width: 96px;
+  height: 96px;
   font-weight: 700;
   padding: 0 4px;
   border-bottom: 1px solid transparent;
   transition: all 0.3s ease;
 }
 
+
+@media (max-width: 768px) {
+  .sp-card { height: 240px; }
+  .sp-logo { width: 80px; height: 80px; }
+}
+
+@media (max-width: 480px) {
+  .sp-card { height: 200px; }
+  .sp-logo { width: 72px; height: 72px; }
+}
 .sp-link:hover {
   color: #ffffff;
   border-bottom-color: #ffab00;
