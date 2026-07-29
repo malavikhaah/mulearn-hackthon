@@ -4,27 +4,27 @@ import './PreEvents.css';
 const events = [
   {
     title: 'Problem Statement Hunt',
-    label: '18:00',
+    label: '29 July',
     description: 'Explore challenge statements and identify the strongest problem to solve before the hackathon starts.',
   },
   {
+    title: 'Find Your Teammate',
+    label: '03 August',
+    description: 'Connect with fellow participants and form your dream hackathon team.',
+  },
+  {
     title: 'GitHub Session',
-    label: '18:45',
+    label: '04 August',
     description: 'Learn repository workflows, version control best practices, and collaboration strategies.',
   },
   {
     title: 'DSA Competition',
-    label: '19:30',
+    label: '05 August',
     description: 'Sharpen algorithm skills with a timed coding contest that tests speed and logic.',
   },
   {
-    title: 'Find Your Teammate',
-    label: '20:15',
-    description: 'Connect with fellow participants and form your dream hackathon team.',
-  },
-  {
     title: 'AI Tools Intro',
-    label: '21:00',
+    label: '06 August',
     description: 'Discover AI tools that help speed up ideation, prototyping, and presentation workflows.',
   },
 ];
