@@ -5,30 +5,25 @@ const rules = [
   {
     id: "01",
     title: "TEAM SIZE",
-    text: "Each team must consist of 2 to 4 members. Solo entries are not permitted.",
+    text: "Each team must consist of 2 to 3 members. Solo entries are not permitted.",
   },
   {
     id: "02",
-    title: "INCLUSIVE TEAMS",
-    text: "Every team must include at least one female participant.",
-  },
-  {
-    id: "03",
     title: "HACK DURATION",
     text: "Participants will have 24 hours to design, build, and demo their solution.",
   },
   {
-    id: "04",
+    id: "03",
     title: "ORIGINAL WORK",
     text: "All projects must be developed during the hackathon. Pre-built solutions are strictly not allowed.",
   },
   {
-    id: "05",
+    id: "04",
     title: "BRING YOUR EQUIPMENT",
     text: "Participants must bring their own laptops, chargers, and development tools. Internet access will be provided on-site.",
   },
   {
-    id: "06",
+    id: "05",
     title: "FOOD & REFRESHMENTS",
     text: "Meals and refreshments will be provided for all registered participants throughout the event.",
   },
