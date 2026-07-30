@@ -104,7 +104,7 @@ function About() {
             <div className="ab-stats" role="list" aria-label="Event statistics">
               {[
                 { value: "24H",  label: "Hack Duration" },
-                { value: "2–4",  label: "Team Size"     },
+                { value: "2–3",  label: "Team Size"     },
                 { value: "100+", label: "Participants"  },
               ].map(({ value, label }) => (
                 <div className="ab-stat" key={label} role="listitem">
