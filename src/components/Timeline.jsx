@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import "./Timeline.css";
 
 export default function Timeline() {
-  const targetDate = new Date("August 8, 2026 15:00:00").getTime();
+  const targetDate = new Date("September 26, 2026 15:00:00").getTime();
   const sectionRef = useRef(null);
 
   const [timeLeft, setTimeLeft] = useState({
@@ -75,7 +75,7 @@ export default function Timeline() {
         {/* Main date heading */}
         <div className="tl-date-block">
           <h2 className="tl-date">
-            AUG <span className="tl-date-accent">8–9</span>
+            SEP <span className="tl-date-accent">26–27</span>
           </h2>
           <p className="tl-year">2026</p>
         </div>

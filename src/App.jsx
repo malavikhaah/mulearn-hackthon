@@ -91,7 +91,7 @@ function App() {
 
           <div className="hero-meta">
             <span className="hero-meta-item">
-              <span className="meta-accent">AUG 8–9</span> · 2026
+              <span className="meta-accent">SEP 26–27</span> · 2026
             </span>
             <span className="meta-divider" aria-hidden="true">|</span>
             <span className="hero-meta-item">24 HRS</span>
