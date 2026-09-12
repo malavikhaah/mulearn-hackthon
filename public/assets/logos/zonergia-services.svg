@@ -1,0 +1,19 @@
+<svg width="420" height="220" viewBox="0 0 420 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="420" height="220" fill="#ffffff"/>
+
+  <!-- Circular green emblem -->
+  <g transform="translate(20,20)">
+    <circle cx="60" cy="60" r="56" fill="none" stroke="#0f9a4b" stroke-width="2"/>
+    <path d="M42 84 L60 34 L78 84 L61 84 L54 76 L69 70 L51 76 L48 86" fill="#0f9a4b"/>
+    <path d="M72 42 C80 50, 79 60, 70 65" stroke="#0f9a4b" stroke-width="2" fill="none"/>
+    <path d="M50 62 C55 74, 67 79, 78 78" stroke="#0f9a4b" stroke-width="2" fill="none"/>
+  </g>
+
+  <!-- Text group -->
+  <g transform="translate(130,16)">
+    <text x="0" y="70" font-family="'Times New Roman', serif" font-size="56" font-weight="400" fill="#111111">Zonergia</text>
+    <text x="2" y="118" font-family="Arial, sans-serif" font-size="24" font-weight="400" fill="#111111">Services Pvt. Ltd.</text>
+    <text x="0" y="154" font-family="Arial, sans-serif" font-size="18" font-weight="500" fill="#1a1a1a">Renewable Energy - Consultancy, Research &amp; Training</text>
+    <line x1="0" y1="168" x2="280" y2="168" stroke="#4CAF50" stroke-width="2"/>
+  </g>
+</svg>

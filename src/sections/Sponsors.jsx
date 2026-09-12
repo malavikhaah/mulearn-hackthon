@@ -2,8 +2,9 @@ import React, { useEffect, useRef } from 'react';
 import './Sponsors.css';
 
 const supporters = [
-  { name: 'MALABAR GOLD & DIAMONDS', logo: '/assets/logos/malabar-gold.png', color: '#540b33' },
-  { name: 'LUMINAR TECHNOLAB', logo: '/assets/logos/luminar-technolab.png', color: '#812990' } 
+  { name: 'MALABAR GOLD & DIAMONDS', logo: '/assets/logos/malabar-gold.png', color: '#540b33', role: 'DIAMOND PARTNER' },
+  { name: 'LUMINAR TECHNOLAB', logo: '/assets/logos/luminar-technolab.png', color: '#812990', role: 'EDUCATION PARTNER' },
+  { name: 'ZONERGIA SERVICES PVT. LTD.', logo: '/assets/logos/zonergia-services.svg', color: '#0f9a4b', role: 'SUSTAINABILITY PARTNER' }
 ];
 export default function Sponsors() {
   const cardsRef = useRef([]);
